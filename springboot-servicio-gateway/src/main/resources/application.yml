@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: servicio-evento
+        uri: lb://servicio-evento
+        predicates:
+          - Path=/api/evento/**
+        filters:
+          - StripPrefix=2
+      - id: servicio-localidad
+        uri: lb://servicio-localidad
+        predicates:
+          - Path=/api/localidad/**
+        filters:
+          - StripPrefix=2
+      - id: servicio-asignacion
+        uri: lb://servicio-asignacion
+        predicates:
+          - Path=/api/asignacion/**
+        filters:
+          - StripPrefix=2
+
+        
+          
+      
